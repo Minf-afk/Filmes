@@ -10,15 +10,27 @@ namespace Filmes
         {
             Titulo = titulo;
             Duracao = duracao;
-            elenco = new List<string>();
+            Elenco = new List<string>();
         }
         public string Titulo { get; set; }
         public int Duracao { get; set; }
         public List<string> Elenco { get;}
 
-        public void AdicionarElenco(string elenco)
+        public void AdicionarElenco()
         {
-            Elenco.Add(elenco);
+            Console.WriteLine("Digite o nome do artista deste filme: \n");
+            string nomeArtista = Console.ReadLine();
+            Elenco.Add(nomeArtista);
+        }
+
+        public void ListarElenco()
+        {
+
+            Console.WriteLine("Elenco: \n");
+            foreach (var itens in Elenco)
+            {
+                Console.WriteLine($"{itens}");
+            }
         }
 
         public void MostrarDetalhes()
