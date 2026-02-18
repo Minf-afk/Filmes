@@ -10,33 +10,33 @@ namespace Filmes
         {
             Titulo = titulo;
             Duracao = duracao;
-            Elenco = new List<string>();
-        }
-        public string Titulo { get; set; }
-        public int Duracao { get; set; }
-        public List<string> Elenco { get;}
-
-        public void AdicionarElenco()
-        {
-            Console.WriteLine("Digite o nome do artista deste filme: \n");
-            string nomeArtista = Console.ReadLine();
-            Elenco.Add(nomeArtista);
         }
 
-        public void ListarElenco()
-        {
+        public string Titulo { get; }
+        public int Duracao { get; }
 
-            Console.WriteLine("Elenco: \n");
-            foreach (var itens in Elenco)
-            {
-                Console.WriteLine($"{itens}");
-            }
+        public List<Artista> Elenco { get; } = new();
+
+        public void AdicionarElenco(Artista artista)
+        {
+            if (Elenco.Contains(artista)) return;
+
+            Elenco.Add(artista);
+            artista.AdicionarFilme(this); 
         }
 
         public void MostrarDetalhes()
         {
-            Console.WriteLine($"O filme: {Titulo} tem duração de: {Duracao} e conta com o grande elenco: {string.Join(", ",Elenco)}");
-            
+            Console.WriteLine($"Filme: {Titulo} ({Duracao} min)");
+            Console.WriteLine("Elenco: " + string.Join(", ", Elenco.ConvertAll(a => a.Nome)));
+        }
+
+        public void ListarElenco()
+        {
+            foreach (var item in Titulo)
+            {
+                
+            }
         }
     }
 }
