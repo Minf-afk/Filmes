@@ -30,13 +30,5 @@ namespace Filmes
             Console.WriteLine($"Filme: {Titulo} ({Duracao} min)");
             Console.WriteLine("Elenco: " + string.Join(", ", Elenco.ConvertAll(a => a.Nome)));
         }
-
-        public void ListarElenco()
-        {
-            foreach (var item in Titulo)
-            {
-                
-            }
-        }
     }
 }
